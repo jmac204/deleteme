@@ -6,11 +6,6 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
-                sh 'docker build -t jeremymcintyre/vettec_flask_app .'
-            }
-        }
         stage('Login and Push'){
             steps {
                 script{
@@ -21,6 +16,5 @@ pipeline {
             }
         }
  
-        }
     }
 }
