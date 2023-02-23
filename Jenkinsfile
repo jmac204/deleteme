@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script{
                     withDockerRegistry(credentialsId: 'Docker') {
-                        docker push jeremymcintyre/vettec_flask_app
+                        docker.build('jeremymcintyre/vettec_flask_app').push('latest')
 }
                 }
             }
