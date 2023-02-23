@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER = credentials('Docker')
-    }
-
     stages {
         stage('Login and Push'){
             steps {
