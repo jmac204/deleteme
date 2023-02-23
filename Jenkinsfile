@@ -11,15 +11,16 @@ pipeline {
                 sh 'docker build -t jeremymcintyre/vettec_flask_app .'
             }
         }
-        stage('Login'){
+        stage('Login and Push'){
             steps {
-                echo '$DOCKER | docker login -u jeremymcintyre --password-stdin'
+                script{
+                    withDockerRegistry(credentialsId: 'Docker') {
+                        docker push jeremymcintyre/vettec_flask_app
+}
+                }
             }
         }
-        stage('Push'){
-            steps {
-                sh 'docker push jeremymcintyre/vettec_flask_app'
-            }
+ 
         }
     }
 }
