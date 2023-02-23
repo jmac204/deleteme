@@ -16,5 +16,10 @@ pipeline {
                 echo '$DOCKER | docker login -u jeremymcintyre --password-stdin'
             }
         }
+        stage('Push'){
+            steps {
+                sh 'docker push jeremymcintyre/vettec_flask_app'
+            }
+        }
     }
 }
