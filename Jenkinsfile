@@ -38,7 +38,7 @@ pipeline {
                         } catch (Exception e) {
                             echo 'Exception occured: ' + e.toString()
                             echo 'Handled the Exception!'
-                    }
+                        }
                     }
                     
                 }
