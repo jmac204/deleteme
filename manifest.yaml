@@ -2,3 +2,28 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: jeremymcintyre-namespace
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment
+  namespace: jeremymcintyre-namespace
+  labels:
+    app: flask
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask
+        image: jeremymcintyre/vettec_flask_app
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always
+---
